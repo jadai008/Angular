@@ -1,0 +1,1 @@
+This project is to demonstrate a directive. A h1 tag uses the directive 'click-h1'. It also uses HostListener to listen to self generated events such as click and any mouse event etc.
