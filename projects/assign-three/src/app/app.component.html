@@ -1,0 +1,12 @@
+<div class="container">
+	<button class="btn btn-primary"
+	  (click)="toggleVisibility(); addItems()"
+	>Display Details</button>
+	<p *ngIf="showPara">Secret code: true</p>
+	<div *ngFor="let item of items">
+		<p
+			[ngStyle]="{'backgroundColor': getBGColor(item)}"
+			[ngClass]="{'wclr': (item > 5)}"
+		>{{item}}</p>
+	</div>
+</div>

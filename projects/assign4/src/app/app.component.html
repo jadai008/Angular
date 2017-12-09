@@ -1,0 +1,8 @@
+<div class="container">
+  <game (gameStarted)="addNumber($event)"></game>
+  <hr>
+  <div *ngFor="let num of nums">
+    <odd *ngIf="num % 2 == 1" [value]="num"></odd>
+    <even *ngIf="num % 2 == 0"  [value]="num"></even>
+  </div>
+</div>

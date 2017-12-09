@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+        <add-panel (serverAdded)="newServerAdded($event)"></add-panel>
+    </div>
+    <hr>
+    <div class="row">
+        <h1>List of available Servers</h1>
+        <list-panel [servers]="allServers"></list-panel>
+    </div>
+</div>
