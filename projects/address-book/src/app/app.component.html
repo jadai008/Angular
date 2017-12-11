@@ -3,13 +3,13 @@
   <div class="row">
     <input type="text" class="form-control" placeholder="Search for contact names..."/>
     <br>
-    <button class="btn btn-success">Add</button>
+    <button class="btn btn-success" (click)="onAddContact()">Add</button>
   </div>
   <hr>
   <div class="row">
     <div class="col-xs-12 col-md-6">
       
-        <a href="#" *ngFor="let contact of contacts; let i = index" class="list-group-item clearfix">
+        <a href="#" *ngFor="let contact of contacts; let i = index" (click)="onContactSelected($event, i)" [ngClass]="{active: i === selectedIndex}" class="list-group-item clearfix">
           <div class="pull-left">
             <h4 class="list-group-item-heading">{{contact.name}}</h4>
             <p class="list-group-item-text">{{ contact.phone }}</p>
@@ -25,7 +25,7 @@
         </a>
     </div>
     <div class="col-xs-12 col-md-6">
-      <add-edit-contact></add-edit-contact>
+      <add-edit-contact [addMode]="addMode" [selectedContact]="selectedContact"></add-edit-contact>
     </div>
   </div>
 </div>
