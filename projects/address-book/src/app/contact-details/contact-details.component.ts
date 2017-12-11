@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { Contact } from '../model/contact.model';
 import { ContactsService } from '../services/contacts.service';
 
@@ -9,14 +9,19 @@ import { ContactsService } from '../services/contacts.service';
 })
 export class ContactDetailsComponent implements OnInit {
 
-  addMode: boolean = false;
+  @Input() addMode: boolean = false;
 
-  selectedContact: Contact;
+  @Input() selectedContact: Contact;
 
   constructor(private contactsService: ContactsService) { }
 
   ngOnInit() {
-    this.selectedContact = this.contactsService.getContacts()[0];
+    
+  }
+
+  onSave(elName: ElementRef, elPhone: ElementRef, elEmail: ElementRef, elImgPath: ElementRef) {
+    let contact = new Contact(elName.nativeElement.value, elPhone.nativeElement.value, elEmail.nativeElement.value);
+    this.contactsService.add(contact);
   }
 
 }
