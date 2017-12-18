@@ -19,8 +19,8 @@ export class ContactDetailsComponent implements OnInit {
     
   }
 
-  onSave(elName: ElementRef, elPhone: ElementRef, elEmail: ElementRef, elImgPath: ElementRef) {
-    let contact = new Contact(elName.nativeElement.value, elPhone.nativeElement.value, elEmail.nativeElement.value);
+  onSave(name: string, phone: string, email: string, imgPath: string) {
+    let contact = new Contact(name, phone, email, imgPath);
     this.contactsService.add(contact);
   }
 
